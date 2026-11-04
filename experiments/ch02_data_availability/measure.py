@@ -86,13 +86,15 @@ def backfill_minutes(c: KiwoomClient, code: str, tic: str) -> dict:
         if pages % 20 == 0:
             print(f"  {code} tic={tic}: {pages}페이지, 마지막 {page[-1]['cntr_tm'] if page else '-'}", flush=True)
     df = pd.DataFrame(rows)
+    empty = int((df["cntr_tm"].fillna("") == "").sum())
+    df = df[df["cntr_tm"].fillna("") != ""]
     out = RAW_DIR / f"ka10080_tic{tic}" / f"{code}.parquet"
     out.parent.mkdir(parents=True, exist_ok=True)
     df.to_parquet(out, index=False)
     days = df["cntr_tm"].str[:8]
     per_day = days.value_counts().sort_index()
     return {
-        "code": code, "tic_scope": tic, "rows": len(df), "pages": pages,
+        "code": code, "tic_scope": tic, "rows": len(df), "empty_rows": empty, "pages": pages,
         "first_bar": df["cntr_tm"].min(), "last_bar": df["cntr_tm"].max(),
         "trading_days": int(days.nunique()),
         "bars_per_day_mode": int(per_day.mode().iloc[0]),
@@ -133,11 +135,18 @@ def m_venue(c: KiwoomClient) -> None:
             df = pd.DataFrame(rows)
             r = {"code": code, "venue": venue, "rows_first_page": len(df), "cont_yn": cont}
             if len(df):
-                last_day = df["cntr_tm"].str[:8].max()
-                d = df[df["cntr_tm"].str[:8] == last_day]
-                r.update({"last_day": last_day, "bars_last_day": len(d),
-                          "first_time": d["cntr_tm"].min()[8:], "last_time": d["cntr_tm"].max()[8:],
-                          "volume_last_day": int(d["trde_qty"].astype("int64").sum())})
+                # NXT 미거래 종목은 시각·수량이 빈 문자열인 행이 올 수 있다 → 빈 행 수를 따로 기록
+                tm = df["cntr_tm"].fillna("")
+                r["empty_rows"] = int((tm == "").sum())
+                d = df[tm != ""]
+                if len(d):
+                    last_day = d["cntr_tm"].str[:8].max()
+                    d = d[d["cntr_tm"].str[:8] == last_day]
+                    r.update({"last_day": last_day, "bars_last_day": len(d),
+                              "first_time": d["cntr_tm"].min()[8:], "last_time": d["cntr_tm"].max()[8:],
+                              "volume_last_day": int(pd.to_numeric(d["trde_qty"], errors="coerce").fillna(0).sum())})
+                else:
+                    r["sample_row"] = rows[0]
             results.append(r)
             print(json.dumps(r, ensure_ascii=False), flush=True)
     save("venue", {"mode": c.mode, "api": "ka10080", "results": results, "stat": c.stat.summary()})
@@ -176,7 +185,7 @@ def m_daily(c: KiwoomClient) -> None:
 def m_rate(c: KiwoomClient) -> None:
     """간격 없이 순차 호출 40회 / 간격별 20회 — 제한 응답이 시작되는 지점."""
     results = []
-    for interval in (0.0, 0.25, 0.4, 0.55):
+    for interval in (0.0, 0.25, 0.4, 0.55, 0.7, 1.0):
         c.min_interval = interval
         ok = limited = 0
         t0 = time.monotonic()
@@ -211,7 +220,7 @@ def main() -> None:
     ap.add_argument("--mode", default=None)
     args = ap.parse_args()
     c = KiwoomClient(args.mode)
-    items = ["token", "rate", "venue", "daily", "minute", "minute5"] if args.item == "all" else [args.item]
+    items = ["venue", "daily", "minute", "minute5", "rate"] if args.item == "all" else [args.item]
     for it in items:
         print(f"===== {it} ({now()})", flush=True)
         {"token": m_token, "minute": m_minute, "minute5": lambda c: m_minute(c, "5"),
