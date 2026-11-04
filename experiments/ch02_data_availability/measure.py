@@ -212,19 +212,80 @@ def m_rate(c: KiwoomClient) -> None:
     save("rate", {"mode": c.mode, "api": "ka10001", "results": results})
 
 
+# ---------------------------------------------------------------- 분봉 수정주가
+def bars(df: pd.DataFrame) -> pd.DataFrame:
+    """키움 분봉 원본(문자열, 등락 부호 포함) → 숫자 OHLCV, 시각 인덱스."""
+    out = pd.DataFrame({
+        "ts": pd.to_datetime(df["cntr_tm"], format="%Y%m%d%H%M%S"),
+        **{k: pd.to_numeric(df[src], errors="coerce").abs()
+           for k, src in (("open", "open_pric"), ("high", "high_pric"), ("low", "low_pric"),
+                          ("close", "cur_prc"), ("volume", "trde_qty"))},
+    })
+    return out.sort_values("ts").set_index("ts")
+
+
+def m_adjcheck(c: KiwoomClient, code: str = "247540") -> None:
+    """분봉도 수정주가가 적용되는가 — 무수정 1분봉을 받아 저장된 수정 1분봉과 날짜별 비교."""
+    rows = []
+    for page in c.iter_pages(c.minute_chart, code, adjusted=False):
+        rows.extend(page)
+    raw = bars(pd.DataFrame(rows))
+    adj = bars(pd.read_parquet(RAW_DIR / "ka10080_tic1" / f"{code}.parquet"))
+    m = adj.join(raw, lsuffix="_adj", rsuffix="_raw", how="inner")
+    m["day"] = m.index.strftime("%Y%m%d")
+    diff = m[m["close_adj"] != m["close_raw"]]
+    by_day = diff.groupby("day").size()
+    ratio = (diff["close_raw"] / diff["close_adj"]).describe().round(4).to_dict() if len(diff) else {}
+    res = {"code": code, "bars_compared": len(m), "bars_diff": len(diff),
+           "diff_days": int(by_day.size), "diff_first_day": by_day.index.min() if len(by_day) else None,
+           "diff_last_day": by_day.index.max() if len(by_day) else None,
+           "raw_over_adj_ratio": ratio, "stat": c.stat.summary()}
+    print(json.dumps(res, ensure_ascii=False, indent=1))
+    save("minute_adjusted", {"mode": c.mode, "api": "ka10080", **res})
+
+
+# ---------------------------------------------------------------- 5분봉 vs 1분봉 재집계
+def m_compare5(_c: KiwoomClient | None = None) -> None:
+    """5분봉 직접 조회와 1분봉 재집계가 같은가, 분봉 시각은 구간의 시작인가 끝인가."""
+    results = []
+    for code in SAMPLES:
+        p1, p5 = RAW_DIR / "ka10080_tic1" / f"{code}.parquet", RAW_DIR / "ka10080_tic5" / f"{code}.parquet"
+        if not (p1.exists() and p5.exists()):
+            continue
+        one, five = bars(pd.read_parquet(p1)), bars(pd.read_parquet(p5))
+        five = five[five.index >= one.index.min()]
+        r = {"code": code, "five_bars": len(five)}
+        for label in ("left", "right"):
+            # left: 09:00 봉 = 09:00~09:04 / right: 09:05 봉 = 09:01~09:05
+            closed = "left" if label == "left" else "right"
+            agg = one.resample("5min", label=label, closed=closed).agg(
+                {"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}).dropna()
+            j = five.join(agg, rsuffix="_1m", how="inner")
+            match = {k: round(float((j[k] == j[k + "_1m"]).mean()), 4) for k in ("open", "high", "low", "close", "volume")}
+            r[label] = {"joined": len(j), "match_rate": match}
+        print(json.dumps(r, ensure_ascii=False), flush=True)
+        results.append(r)
+    save("minute5_vs_1", {"results": results,
+                          "note": "left=봉 시각이 구간 시작, right=봉 시각이 구간 끝. 일치율이 높은 쪽이 키움의 규칙"})
+
+
 def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
-    ap.add_argument("item", choices=["token", "minute", "minute5", "venue", "daily", "rate", "all"])
+    ap.add_argument("item", choices=["token", "minute", "minute5", "venue", "daily", "rate",
+                                     "adjcheck", "compare5", "all"])
     ap.add_argument("--mode", default=None)
     args = ap.parse_args()
+    if args.item == "compare5":  # API 호출 없음
+        m_compare5()
+        return
     c = KiwoomClient(args.mode)
     items = ["venue", "daily", "minute", "minute5", "rate"] if args.item == "all" else [args.item]
     for it in items:
         print(f"===== {it} ({now()})", flush=True)
         {"token": m_token, "minute": m_minute, "minute5": lambda c: m_minute(c, "5"),
-         "venue": m_venue, "daily": m_daily, "rate": m_rate}[it](c)
+         "venue": m_venue, "daily": m_daily, "rate": m_rate, "adjcheck": m_adjcheck}[it](c)
 
 
 if __name__ == "__main__":
