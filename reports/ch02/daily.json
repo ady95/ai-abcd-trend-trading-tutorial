@@ -1,0 +1,108 @@
+{
+ "measured_at": "2026-11-05 01:23:20",
+ "python": "3.12.15",
+ "mode": "paper",
+ "api": "ka10081",
+ "results": [
+  {
+   "code": "005930",
+   "name": "삼성전자 (KOSPI, NXT 거래)",
+   "rows": 10962,
+   "first_day": "19850104",
+   "last_day": "20261104",
+   "columns": [
+    "cur_prc",
+    "trde_qty",
+    "trde_prica",
+    "dt",
+    "open_pric",
+    "high_pric",
+    "low_pric",
+    "pred_pre",
+    "pred_pre_sig",
+    "trde_tern_rt",
+    "upd_stkpc_tp",
+    "upd_rt"
+   ],
+   "adjusted_vs_raw_diff_days": 8878,
+   "diff_last_day": "20180503"
+  },
+  {
+   "code": "000660",
+   "name": "SK하이닉스 (KOSPI, NXT 거래)",
+   "rows": 7449,
+   "first_day": "19961226",
+   "last_day": "20261104",
+   "columns": [
+    "cur_prc",
+    "trde_qty",
+    "trde_prica",
+    "dt",
+    "open_pric",
+    "high_pric",
+    "low_pric",
+    "pred_pre",
+    "pred_pre_sig",
+    "trde_tern_rt",
+    "upd_stkpc_tp",
+    "upd_rt"
+   ],
+   "adjusted_vs_raw_diff_days": 1637,
+   "diff_last_day": "20030411"
+  },
+  {
+   "code": "247540",
+   "name": "에코프로비엠 (KOSDAQ)",
+   "rows": 1884,
+   "first_day": "20190305",
+   "last_day": "20261104",
+   "columns": [
+    "cur_prc",
+    "trde_qty",
+    "trde_prica",
+    "dt",
+    "open_pric",
+    "high_pric",
+    "low_pric",
+    "pred_pre",
+    "pred_pre_sig",
+    "trde_tern_rt",
+    "upd_stkpc_tp",
+    "upd_rt"
+   ],
+   "adjusted_vs_raw_diff_days": 1843,
+   "diff_last_day": "20260902"
+  },
+  {
+   "code": "035720",
+   "name": "카카오 (KOSPI)",
+   "rows": 6648,
+   "first_day": "19991111",
+   "last_day": "20261104",
+   "columns": [
+    "cur_prc",
+    "trde_qty",
+    "trde_prica",
+    "dt",
+    "open_pric",
+    "high_pric",
+    "low_pric",
+    "pred_pre",
+    "pred_pre_sig",
+    "trde_tern_rt",
+    "upd_stkpc_tp",
+    "upd_rt"
+   ],
+   "adjusted_vs_raw_diff_days": 5288,
+   "diff_last_day": "20210414"
+  }
+ ],
+ "stat": {
+  "calls": 137,
+  "rate_limited": 29,
+  "errors": 0,
+  "token_issued": 0,
+  "token_refreshed": 0,
+  "latency_median_ms": 22
+ }
+}

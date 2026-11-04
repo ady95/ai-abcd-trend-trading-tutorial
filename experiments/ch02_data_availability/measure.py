@@ -231,7 +231,7 @@ def m_adjcheck(c: KiwoomClient, code: str = "247540") -> None:
         rows.extend(page)
     raw = bars(pd.DataFrame(rows))
     adj = bars(pd.read_parquet(RAW_DIR / "ka10080_tic1" / f"{code}.parquet"))
-    m = adj.join(raw, lsuffix="_adj", rsuffix="_raw", how="inner")
+    m = adj.join(raw, how="inner", suffixes=("_adj", "_raw"))
     m["day"] = m.index.strftime("%Y%m%d")
     diff = m[m["close_adj"] != m["close_raw"]]
     by_day = diff.groupby("day").size()
@@ -260,7 +260,7 @@ def m_compare5(_c: KiwoomClient | None = None) -> None:
             closed = "left" if label == "left" else "right"
             agg = one.resample("5min", label=label, closed=closed).agg(
                 {"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}).dropna()
-            j = five.join(agg, rsuffix="_1m", how="inner")
+            j = five.join(agg, how="inner", suffixes=("", "_1m"))
             match = {k: round(float((j[k] == j[k + "_1m"]).mean()), 4) for k in ("open", "high", "low", "close", "volume")}
             r[label] = {"joined": len(j), "match_rate": match}
         print(json.dumps(r, ensure_ascii=False), flush=True)

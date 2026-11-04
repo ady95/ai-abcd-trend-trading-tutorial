@@ -1,0 +1,103 @@
+{
+ "measured_at": "2026-11-05 01:32:55",
+ "python": "3.12.15",
+ "results": [
+  {
+   "code": "005930",
+   "five_bars": 20758,
+   "left": {
+    "joined": 20758,
+    "match_rate": {
+     "open": 1.0,
+     "high": 1.0,
+     "low": 1.0,
+     "close": 1.0,
+     "volume": 1.0
+    }
+   },
+   "right": {
+    "joined": 20743,
+    "match_rate": {
+     "open": 0.224,
+     "high": 0.4246,
+     "low": 0.4319,
+     "close": 0.2191,
+     "volume": 0.0234
+    }
+   }
+  },
+  {
+   "code": "000660",
+   "five_bars": 20758,
+   "left": {
+    "joined": 20758,
+    "match_rate": {
+     "open": 1.0,
+     "high": 1.0,
+     "low": 1.0,
+     "close": 1.0,
+     "volume": 1.0
+    }
+   },
+   "right": {
+    "joined": 20738,
+    "match_rate": {
+     "open": 0.1707,
+     "high": 0.3076,
+     "low": 0.3099,
+     "close": 0.161,
+     "volume": 0.0234
+    }
+   }
+  },
+  {
+   "code": "247540",
+   "five_bars": 20769,
+   "left": {
+    "joined": 20769,
+    "match_rate": {
+     "open": 1.0,
+     "high": 1.0,
+     "low": 1.0,
+     "close": 1.0,
+     "volume": 1.0
+    }
+   },
+   "right": {
+    "joined": 20748,
+    "match_rate": {
+     "open": 0.2157,
+     "high": 0.3395,
+     "low": 0.3421,
+     "close": 0.2073,
+     "volume": 0.0235
+    }
+   }
+  },
+  {
+   "code": "035720",
+   "five_bars": 20751,
+   "left": {
+    "joined": 20751,
+    "match_rate": {
+     "open": 1.0,
+     "high": 1.0,
+     "low": 1.0,
+     "close": 1.0,
+     "volume": 1.0
+    }
+   },
+   "right": {
+    "joined": 20740,
+    "match_rate": {
+     "open": 0.3278,
+     "high": 0.5386,
+     "low": 0.5441,
+     "close": 0.326,
+     "volume": 0.0238
+    }
+   }
+  }
+ ],
+ "note": "left=봉 시각이 구간 시작, right=봉 시각이 구간 끝. 일치율이 높은 쪽이 키움의 규칙"
+}

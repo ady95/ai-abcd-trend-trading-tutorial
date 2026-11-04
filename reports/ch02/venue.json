@@ -1,0 +1,168 @@
+{
+ "measured_at": "2026-11-05 01:22:00",
+ "python": "3.12.15",
+ "mode": "paper",
+ "api": "ka10080",
+ "results": [
+  {
+   "code": "005930",
+   "venue": "KRX",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 622,
+   "first_time": "090000",
+   "last_time": "195900",
+   "volume_last_day": 22148661
+  },
+  {
+   "code": "005930",
+   "venue": "NXT",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 691,
+   "first_time": "080000",
+   "last_time": "195900",
+   "volume_last_day": 12675619
+  },
+  {
+   "code": "005930",
+   "venue": "통합",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 692,
+   "first_time": "080000",
+   "last_time": "195900",
+   "volume_last_day": 34824280
+  },
+  {
+   "code": "000660",
+   "venue": "KRX",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 621,
+   "first_time": "090000",
+   "last_time": "195900",
+   "volume_last_day": 4565326
+  },
+  {
+   "code": "000660",
+   "venue": "NXT",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 691,
+   "first_time": "080000",
+   "last_time": "195900",
+   "volume_last_day": 2451086
+  },
+  {
+   "code": "000660",
+   "venue": "통합",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 692,
+   "first_time": "080000",
+   "last_time": "195900",
+   "volume_last_day": 7016412
+  },
+  {
+   "code": "247540",
+   "venue": "KRX",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 607,
+   "first_time": "090000",
+   "last_time": "195900",
+   "volume_last_day": 796856
+  },
+  {
+   "code": "247540",
+   "venue": "NXT",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 689,
+   "first_time": "080000",
+   "last_time": "195900",
+   "volume_last_day": 359878
+  },
+  {
+   "code": "247540",
+   "venue": "통합",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 692,
+   "first_time": "080000",
+   "last_time": "195900",
+   "volume_last_day": 1156734
+  },
+  {
+   "code": "035720",
+   "venue": "KRX",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 616,
+   "first_time": "090000",
+   "last_time": "195900",
+   "volume_last_day": 1596444
+  },
+  {
+   "code": "035720",
+   "venue": "NXT",
+   "rows_first_page": 1,
+   "cont_yn": "N",
+   "empty_rows": 1,
+   "sample_row": {
+    "cur_prc": "",
+    "trde_qty": "",
+    "cntr_tm": "",
+    "open_pric": "",
+    "high_pric": "",
+    "low_pric": "",
+    "acc_trde_qty": "",
+    "pred_pre": "",
+    "pred_pre_sig": "",
+    "upd_stkpc_tp": "",
+    "upd_rt": ""
+   }
+  },
+  {
+   "code": "035720",
+   "venue": "통합",
+   "rows_first_page": 900,
+   "cont_yn": "Y",
+   "empty_rows": 0,
+   "last_day": "20261104",
+   "bars_last_day": 616,
+   "first_time": "090000",
+   "last_time": "195900",
+   "volume_last_day": 1596444
+  }
+ ],
+ "stat": {
+  "calls": 14,
+  "rate_limited": 2,
+  "errors": 0,
+  "token_issued": 0,
+  "token_refreshed": 0,
+  "latency_median_ms": 29
+ }
+}

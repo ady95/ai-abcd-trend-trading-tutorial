@@ -1,0 +1,30 @@
+{
+ "measured_at": "2026-11-05 01:34:24",
+ "python": "3.12.15",
+ "mode": "paper",
+ "api": "ka10080",
+ "code": "247540",
+ "bars_compared": 100443,
+ "bars_diff": 78115,
+ "diff_days": 205,
+ "diff_first_day": "20251103",
+ "diff_last_day": "20260902",
+ "raw_over_adj_ratio": {
+  "count": 78115.0,
+  "mean": 1.016,
+  "std": 0.0,
+  "min": 1.0159,
+  "25%": 1.0159,
+  "50%": 1.016,
+  "75%": 1.016,
+  "max": 1.016
+ },
+ "stat": {
+  "calls": 138,
+  "rate_limited": 26,
+  "errors": 0,
+  "token_issued": 0,
+  "token_refreshed": 0,
+  "latency_median_ms": 27
+ }
+}
