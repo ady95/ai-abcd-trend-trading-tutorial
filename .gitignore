@@ -218,3 +218,24 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---- 프로젝트 전용 ----
+# 비밀정보: API 키·계좌정보는 절대 커밋하지 않는다
+.env
+.env.*
+!.env.example
+config/secrets*.yaml
+config/*_local.yaml
+*.pem
+*.key
+
+# 원천·정제 시세 데이터 (용량·라이선스 문제로 저장소에 포함하지 않음)
+data/*
+!data/.gitkeep
+*.parquet
+*.duckdb
+
+# 모델 산출물·로그
+models_out/
+*.lgb
+logs/
