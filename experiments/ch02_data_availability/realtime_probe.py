@@ -52,6 +52,7 @@ async def run(mode: str, minutes: float) -> dict:
     delays: list[float] = []
     events: list[dict] = []
     reconnects = pings = 0
+    token_refreshed = False
     deadline = time.monotonic() + minutes * 60
 
     with raw_path.open("a", encoding="utf-8") as fp:
@@ -64,6 +65,14 @@ async def run(mode: str, minutes: float) -> dict:
                                    "return_code": login.get("return_code"), "return_msg": login.get("return_msg")})
                     print("LOGIN", login.get("return_code"), login.get("return_msg"), flush=True)
                     if login.get("return_code") != 0:
+                        # 다른 곳에서 같은 앱키로 토큰을 새로 받으면 캐시한 토큰이 무효(8005)가 된다.
+                        # 한 번만 새로 발급해 재접속하고, 그래도 실패하면 끝낸다.
+                        if "8005" in str(login.get("return_msg")) and not token_refreshed:
+                            token_refreshed = True
+                            token = client.issue_token()["token"]
+                            events.append({"t": datetime.now().isoformat(), "event": "토큰 재발급(8005)"})
+                            print("8005 → 토큰 재발급 후 재접속", flush=True)
+                            continue
                         break
                     await ws.send(json.dumps({"trnm": "REG", "grp_no": "1", "refresh": "1",
                                               "data": [{"item": CODES, "type": ["0B", "0D"]}]}))

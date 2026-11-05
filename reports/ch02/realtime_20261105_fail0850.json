@@ -1,0 +1,30 @@
+{
+ "mode": "paper",
+ "day": "20261105",
+ "minutes": 40.0,
+ "codes": [
+  "005930",
+  "000660",
+  "247540",
+  "035720"
+ ],
+ "messages": {},
+ "pings": 0,
+ "reconnects": 0,
+ "real_by_type_item": {},
+ "first_values": {},
+ "trade_delay_ms_p50_p90_p99": [
+  null,
+  null,
+  null
+ ],
+ "events": [
+  {
+   "t": "2026-11-05T08:50:01.918925",
+   "event": "LOGIN",
+   "return_code": 805004,
+   "return_msg": "토큰 인증에 실패했습니다. 접속을 종료합니다 [CODE=8005, MESSAGE=Token이 유효하지 않습니다]"
+  }
+ ],
+ "started_at": "2026-11-05 08:50:01"
+}
