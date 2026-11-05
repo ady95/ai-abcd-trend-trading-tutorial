@@ -4,7 +4,7 @@
 
 > 키움증권 API와 LightGBM으로 구현하는 추세 지속형 패턴 탐지·백테스트·실시간 자동매매
 
-- 책: https://wikidocs.net/book/21778
+- 책: https://wikidocs.net/book/22000
 - 저자: 이창근
 
 ## 이 저장소가 다루는 것
