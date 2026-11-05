@@ -1,0 +1,85 @@
+{
+ "measured_at": "2026-11-06T01:27:12",
+ "days": 264,
+ "first_day": "20251001",
+ "last_day": "20261104",
+ "top": 30,
+ "universe_size_median": 2376,
+ "value_share_median": {
+  "top10": 0.424,
+  "top30": 0.561,
+  "top50": 0.643,
+  "top100": 0.758
+ },
+ "top_stay_next_day_mean": 0.657,
+ "distinct_codes_in_top": 463,
+ "codes_in_top_ge_50days": 43,
+ "next_day": {
+  "전체 대상 종목": {
+   "n": 621170,
+   "gap_mean": 0.2,
+   "gap_median": 0.0,
+   "open_to_high_median": 1.59,
+   "p_open_to_high_ge3": 0.295,
+   "open_to_close_mean": -0.22,
+   "open_to_close_median": -0.33,
+   "p_open_to_close_pos": 0.425,
+   "open_to_low_median": -2.09
+  },
+  "거래대금 상위 30": {
+   "n": 7874,
+   "gap_mean": 0.51,
+   "gap_median": 0.31,
+   "open_to_high_median": 2.47,
+   "p_open_to_high_ge3": 0.435,
+   "open_to_close_mean": -0.59,
+   "open_to_close_median": -0.76,
+   "p_open_to_close_pos": 0.413,
+   "open_to_low_median": -3.24
+  },
+  "등락률 +10% 이상": {
+   "n": 14522,
+   "gap_mean": 1.44,
+   "gap_median": 0.0,
+   "open_to_high_median": 3.97,
+   "p_open_to_high_ge3": 0.58,
+   "open_to_close_mean": -1.21,
+   "open_to_close_median": -1.44,
+   "p_open_to_close_pos": 0.398,
+   "open_to_low_median": -4.94
+  },
+  "주도주 후보(상위 30 & +10% 이상 & 상대강도>0)": {
+   "n": 1370,
+   "gap_mean": 1.15,
+   "gap_median": 0.27,
+   "open_to_high_median": 4.08,
+   "p_open_to_high_ge3": 0.573,
+   "open_to_close_mean": -0.88,
+   "open_to_close_median": -1.5,
+   "p_open_to_close_pos": 0.391,
+   "open_to_low_median": -5.06
+  },
+  "상위 30 & 하락": {
+   "n": 2959,
+   "gap_mean": 0.36,
+   "gap_median": 0.42,
+   "open_to_high_median": 2.38,
+   "p_open_to_high_ge3": 0.42,
+   "open_to_close_mean": -0.48,
+   "open_to_close_median": -0.59,
+   "p_open_to_close_pos": 0.431,
+   "open_to_low_median": -2.95
+  },
+  "상한가(+29.5% 이상)": {
+   "n": 2186,
+   "gap_mean": 8.05,
+   "gap_median": 6.56,
+   "open_to_high_median": 7.8,
+   "p_open_to_high_ge3": 0.72,
+   "open_to_close_mean": -4.68,
+   "open_to_close_median": -4.99,
+   "p_open_to_close_pos": 0.31,
+   "open_to_low_median": -9.9
+  }
+ }
+}
