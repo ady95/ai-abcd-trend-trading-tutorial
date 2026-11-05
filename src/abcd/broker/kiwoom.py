@@ -25,8 +25,8 @@ HOSTS = {
     "paper": "https://mockapi.kiwoom.com",
     "real": "https://api.kiwoom.com",
 }
-# 호출 간 최소 간격(초). 모의 키 약 2건/초, 실전 키 약 8건/초에서 제한 응답이 시작된다는
-# 실측을 바탕으로 여유를 둔 값이다. 2장 실측 결과에 따라 조정한다.
+# 호출 간 최소 간격(초). 2장 실측(2026-11-05)에서 모의 키는 초당 약 1.5~2건만 성공했고,
+# 0.55초 간격 + 제한 응답 재시도가 처리량이 가장 좋았다. 실전 키 값은 미실측 가정치다.
 DEFAULT_INTERVAL = {"paper": 0.55, "real": 0.15}
 TOKEN_DIR = Path(os.getenv("ABCD_CACHE_DIR", Path.home() / ".cache" / "abcd"))
 

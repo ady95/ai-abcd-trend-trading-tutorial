@@ -1,0 +1,351 @@
+{
+ "measured_at": "2026-11-06T00:11:22",
+ "stocks": [
+  {
+   "code": "005930",
+   "bars": 101769,
+   "days": 246,
+   "days_full_regular": 231,
+   "days_short": [
+    {
+     "day": "2025-11-13",
+     "regular_bars": "320",
+     "first_regular": "10:00",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2026-01-02",
+     "regular_bars": "320",
+     "first_regular": "10:00",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2026-03-04",
+     "regular_bars": "351",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "29"
+    },
+    {
+     "day": "2026-03-05",
+     "regular_bars": "378",
+     "first_regular": "09:02",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2026-03-09",
+     "regular_bars": "350",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "30"
+    },
+    {
+     "day": "2026-06-01",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2026-06-08",
+     "regular_bars": "349",
+     "first_regular": "09:02",
+     "last_regular": "15:19",
+     "missing_inside": "29"
+    },
+    {
+     "day": "2026-06-23",
+     "regular_bars": "350",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "30"
+    },
+    {
+     "day": "2026-06-26",
+     "regular_bars": "351",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "29"
+    },
+    {
+     "day": "2026-07-07",
+     "regular_bars": "350",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "30"
+    }
+   ],
+   "missing_inside_total": 296
+  },
+  {
+   "code": "000660",
+   "bars": 101739,
+   "days": 246,
+   "days_full_regular": 222,
+   "days_short": [
+    {
+     "day": "2025-11-03",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2025-11-13",
+     "regular_bars": "320",
+     "first_regular": "10:00",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2025-11-21",
+     "regular_bars": "378",
+     "first_regular": "09:02",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2026-01-02",
+     "regular_bars": "320",
+     "first_regular": "10:00",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2026-03-04",
+     "regular_bars": "351",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "29"
+    },
+    {
+     "day": "2026-03-05",
+     "regular_bars": "378",
+     "first_regular": "09:02",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2026-03-09",
+     "regular_bars": "350",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "30"
+    },
+    {
+     "day": "2026-04-02",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2026-05-13",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2026-05-27",
+     "regular_bars": "378",
+     "first_regular": "09:02",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    }
+   ],
+   "missing_inside_total": 305
+  },
+  {
+   "code": "247540",
+   "bars": 100443,
+   "days": 246,
+   "days_full_regular": 220,
+   "days_short": [
+    {
+     "day": "2025-11-13",
+     "regular_bars": "320",
+     "first_regular": "10:00",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2025-11-27",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2025-12-05",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2025-12-09",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2026-01-02",
+     "regular_bars": "320",
+     "first_regular": "10:00",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2026-01-26",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2026-03-04",
+     "regular_bars": "350",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "30"
+    },
+    {
+     "day": "2026-03-05",
+     "regular_bars": "377",
+     "first_regular": "09:02",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2026-05-22",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2026-06-08",
+     "regular_bars": "351",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "29"
+    }
+   ],
+   "missing_inside_total": 170
+  },
+  {
+   "code": "035720",
+   "bars": 101551,
+   "days": 246,
+   "days_full_regular": 231,
+   "days_short": [
+    {
+     "day": "2025-11-13",
+     "regular_bars": "320",
+     "first_regular": "10:00",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2026-01-02",
+     "regular_bars": "320",
+     "first_regular": "10:00",
+     "last_regular": "15:19",
+     "missing_inside": "0"
+    },
+    {
+     "day": "2026-03-04",
+     "regular_bars": "351",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "29"
+    },
+    {
+     "day": "2026-03-09",
+     "regular_bars": "350",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "30"
+    },
+    {
+     "day": "2026-06-01",
+     "regular_bars": "378",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "2"
+    },
+    {
+     "day": "2026-06-08",
+     "regular_bars": "350",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "30"
+    },
+    {
+     "day": "2026-06-23",
+     "regular_bars": "351",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "29"
+    },
+    {
+     "day": "2026-06-26",
+     "regular_bars": "351",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "29"
+    },
+    {
+     "day": "2026-06-29",
+     "regular_bars": "379",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "1"
+    },
+    {
+     "day": "2026-07-07",
+     "regular_bars": "351",
+     "first_regular": "09:00",
+     "last_regular": "15:19",
+     "missing_inside": "29"
+    }
+   ],
+   "missing_inside_total": 336
+  }
+ ],
+ "minute_sum_vs_daily": [
+  {
+   "code": "000660",
+   "days": 246,
+   "same_days": 3,
+   "avg_gap_pct": 3.473,
+   "max_gap": 1750645
+  },
+  {
+   "code": "005930",
+   "days": 246,
+   "same_days": 1,
+   "avg_gap_pct": 2.367,
+   "max_gap": 15890516
+  },
+  {
+   "code": "035720",
+   "days": 246,
+   "same_days": 59,
+   "avg_gap_pct": 1.054,
+   "max_gap": 2526610
+  },
+  {
+   "code": "247540",
+   "days": 246,
+   "same_days": 31,
+   "avg_gap_pct": 1.71,
+   "max_gap": 136234
+  }
+ ]
+}
