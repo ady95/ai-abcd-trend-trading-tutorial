@@ -183,6 +183,16 @@ class KiwoomClient:
         j, h = self.post("/api/dostk/chart", "ka10080", body, cont_yn, next_key)
         return j.get("stk_min_pole_chart_qry") or [], h.get("cont-yn", "N"), h.get("next-key", "")
 
+    def tick_chart(self, code: str, tic_scope: str = "1", adjusted: bool = True,
+                   cont_yn: str = "", next_key: str = "") -> tuple[list[dict], str, str]:
+        """주식틱차트조회(ka10079) 1회 호출 → (행 목록[최신순], cont-yn, next-key).
+
+        tic_scope: 틱 단위 "1", "3", "5", "10", "30"
+        """
+        body = {"stk_cd": code, "tic_scope": tic_scope, "upd_stkpc_tp": "1" if adjusted else "0"}
+        j, h = self.post("/api/dostk/chart", "ka10079", body, cont_yn, next_key)
+        return j.get("stk_tic_chart_qry") or [], h.get("cont-yn", "N"), h.get("next-key", "")
+
     def daily_chart(self, code: str, base_dt: str, adjusted: bool = True,
                     cont_yn: str = "", next_key: str = "") -> tuple[list[dict], str, str]:
         """주식일봉차트조회(ka10081) 1회 호출 → (행 목록[최신순], cont-yn, next-key)."""

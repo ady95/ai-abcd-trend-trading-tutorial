@@ -1,0 +1,124 @@
+{
+ "measured_at": "2026-11-05 23:17:19",
+ "python": "3.12.15",
+ "mode": "paper",
+ "day": "20261105",
+ "venues_0B": {
+  "KRX": 54197
+ },
+ "results": [
+  {
+   "code": "005930",
+   "minutes": 39,
+   "ws_qty": 3225241,
+   "bar_qty": 3225241,
+   "qty_match_minutes": 31,
+   "close_match_minutes": 39,
+   "worst_minutes": [
+    {
+     "hhmm": "0936",
+     "ws_qty": 190317,
+     "bar_qty": 190367,
+     "diff": -50
+    },
+    {
+     "hhmm": "0937",
+     "ws_qty": 91153,
+     "bar_qty": 91103,
+     "diff": 50
+    },
+    {
+     "hhmm": "0953",
+     "ws_qty": 25486,
+     "bar_qty": 25491,
+     "diff": -5
+    }
+   ]
+  },
+  {
+   "code": "000660",
+   "minutes": 39,
+   "ws_qty": 348720,
+   "bar_qty": 348720,
+   "qty_match_minutes": 39,
+   "close_match_minutes": 39,
+   "worst_minutes": [
+    {
+     "hhmm": "0934",
+     "ws_qty": 11361,
+     "bar_qty": 11361,
+     "diff": 0
+    },
+    {
+     "hhmm": "0935",
+     "ws_qty": 8096,
+     "bar_qty": 8096,
+     "diff": 0
+    },
+    {
+     "hhmm": "0936",
+     "ws_qty": 3998,
+     "bar_qty": 3998,
+     "diff": 0
+    }
+   ]
+  },
+  {
+   "code": "247540",
+   "minutes": 39,
+   "ws_qty": 145485,
+   "bar_qty": 145485,
+   "qty_match_minutes": 39,
+   "close_match_minutes": 39,
+   "worst_minutes": [
+    {
+     "hhmm": "0934",
+     "ws_qty": 3131,
+     "bar_qty": 3131,
+     "diff": 0
+    },
+    {
+     "hhmm": "0935",
+     "ws_qty": 2988,
+     "bar_qty": 2988,
+     "diff": 0
+    },
+    {
+     "hhmm": "0936",
+     "ws_qty": 2699,
+     "bar_qty": 2699,
+     "diff": 0
+    }
+   ]
+  },
+  {
+   "code": "035720",
+   "minutes": 39,
+   "ws_qty": 529860,
+   "bar_qty": 529860,
+   "qty_match_minutes": 39,
+   "close_match_minutes": 39,
+   "worst_minutes": [
+    {
+     "hhmm": "0934",
+     "ws_qty": 25334,
+     "bar_qty": 25334,
+     "diff": 0
+    },
+    {
+     "hhmm": "0935",
+     "ws_qty": 14651,
+     "bar_qty": 14651,
+     "diff": 0
+    },
+    {
+     "hhmm": "0936",
+     "ws_qty": 26181,
+     "bar_qty": 26181,
+     "diff": 0
+    }
+   ]
+  }
+ ],
+ "note": "온전히 수신한 분만 비교(첫·마지막 분 제외). ws_qty=0B 필드15 절대값 합"
+}

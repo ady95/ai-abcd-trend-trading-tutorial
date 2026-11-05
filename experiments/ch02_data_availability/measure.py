@@ -10,6 +10,8 @@
     uv run python experiments/ch02_data_availability/measure.py venue    # KRX/NXT/통합 비교
     uv run python experiments/ch02_data_availability/measure.py daily    # 일봉 범위·수정주가
     uv run python experiments/ch02_data_availability/measure.py rate     # 호출 처리율
+    uv run python experiments/ch02_data_availability/measure.py tick     # 틱 제공 범위
+    uv run python experiments/ch02_data_availability/measure.py realcheck  # 실시간 체결 vs 1분봉 (장중 수신 후)
     uv run python experiments/ch02_data_availability/measure.py all
 """
 from __future__ import annotations
@@ -269,12 +271,90 @@ def m_compare5(_c: KiwoomClient | None = None) -> None:
                           "note": "left=봉 시각이 구간 시작, right=봉 시각이 구간 끝. 일치율이 높은 쪽이 키움의 규칙"})
 
 
+# ---------------------------------------------------------------- 틱 제공 범위
+# 거래가 적은 종목은 끝까지 따라가 범위를 확인하고, 거래가 많은 종목은 페이지 상한까지만 본다.
+TICK_SAMPLES = {"095570": ("AJ네트웍스 (KOSPI, 저유동성)", None), "035720": ("카카오 (KOSPI)", 150)}
+
+
+def m_tick(c: KiwoomClient) -> None:
+    results = []
+    for code, (name, max_pages) in TICK_SAMPLES.items():
+        t0, pages, rows = time.monotonic(), 0, []
+        for page in c.iter_pages(c.tick_chart, code, max_pages=max_pages):
+            pages += 1
+            rows.extend(page)
+            if pages % 25 == 0:
+                print(f"  {code}: {pages}페이지, 마지막 {page[-1].get('cntr_tm') if page else '-'}", flush=True)
+        df = pd.DataFrame(rows)
+        df = df[df["cntr_tm"].fillna("") != ""]
+        out = RAW_DIR / "ka10079_tic1" / f"{code}.parquet"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(out, index=False)
+        days = df["cntr_tm"].str[:8]
+        reached_end = max_pages is None or pages < max_pages
+        r = {"code": code, "name": name, "rows": len(df), "pages": pages, "rows_per_page": round(len(df) / pages),
+             "first_tick": df["cntr_tm"].min(), "last_tick": df["cntr_tm"].max(),
+             "trading_days": int(days.nunique()), "ticks_per_day_median": int(days.value_counts().median()),
+             "reached_end": reached_end, "page_cap": max_pages,
+             "seconds": round(time.monotonic() - t0, 1), "columns": list(df.columns)}
+        print(json.dumps(r, ensure_ascii=False), flush=True)
+        results.append(r)
+    save("tick", {"mode": c.mode, "api": "ka10079", "tic_scope": "1", "results": results, "stat": c.stat.summary()})
+
+
+# ---------------------------------------------------------------- 실시간 체결 vs 1분봉
+def m_realcheck(c: KiwoomClient, day: str | None = None) -> None:
+    """웹소켓 체결(0B)을 1분 단위로 합친 거래량이 같은 시간대 KRX 1분봉 거래량과 같은가.
+
+    0B 필드: 20 체결시간(HHMMSS), 15 거래량(+매수/-매도 체결), 10 현재가, 9081 거래소
+    """
+    day = day or datetime.now().strftime("%Y%m%d")
+    recs, venues = [], {}
+    with (RAW_DIR / "ws" / f"{day}.jsonl").open(encoding="utf-8") as fp:
+        for line in fp:
+            _, raw = line.rstrip("\n").split("\t", 1)
+            msg = json.loads(raw)
+            if msg.get("trnm") != "REAL":
+                continue
+            for d in msg.get("data", []):
+                if d.get("type") != "0B":
+                    continue
+                v = d["values"]
+                venues[v.get("9081")] = venues.get(v.get("9081"), 0) + 1
+                recs.append((d["item"], v["20"][:4], abs(int(v["15"])), abs(int(v["10"]))))
+    ws = pd.DataFrame(recs, columns=["code", "hhmm", "qty", "price"])
+    results = []
+    for code in SAMPLES:
+        w = ws[ws.code == code]
+        # 수신 시작·끝 분은 일부만 받았으므로 제외하고 온전한 분만 비교
+        minutes = sorted(w.hhmm.unique())[1:-1]
+        wv = w[w.hhmm.isin(minutes)].groupby("hhmm").agg(ws_qty=("qty", "sum"), ws_trades=("qty", "size"),
+                                                         ws_close=("price", "last"))
+        rows, _, _ = c.minute_chart(code)
+        b = pd.DataFrame(rows)
+        b = b[b["cntr_tm"].str[:8] == day]
+        b = pd.DataFrame({"hhmm": b["cntr_tm"].str[8:12],
+                          "bar_qty": pd.to_numeric(b["trde_qty"]).abs(),
+                          "bar_close": pd.to_numeric(b["cur_prc"]).abs()}).set_index("hhmm")
+        j = wv.join(b, how="inner")
+        j["diff"] = j["ws_qty"] - j["bar_qty"]
+        r = {"code": code, "minutes": len(j), "ws_qty": int(j.ws_qty.sum()), "bar_qty": int(j.bar_qty.sum()),
+             "qty_match_minutes": int((j["diff"] == 0).sum()),
+             "close_match_minutes": int((j.ws_close == j.bar_close).sum()),
+             "worst_minutes": j.reindex(j["diff"].abs().sort_values(ascending=False).index).head(3)
+                              .reset_index()[["hhmm", "ws_qty", "bar_qty", "diff"]].to_dict("records")}
+        print(json.dumps(r, ensure_ascii=False, default=int), flush=True)
+        results.append(r)
+    save("realtime_vs_minute", {"mode": c.mode, "day": day, "venues_0B": venues, "results": results,
+                                "note": "온전히 수신한 분만 비교(첫·마지막 분 제외). ws_qty=0B 필드15 절대값 합"})
+
+
 def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
     ap.add_argument("item", choices=["token", "minute", "minute5", "venue", "daily", "rate",
-                                     "adjcheck", "compare5", "all"])
+                                     "adjcheck", "compare5", "tick", "realcheck", "all"])
     ap.add_argument("--mode", default=None)
     args = ap.parse_args()
     if args.item == "compare5":  # API 호출 없음
@@ -285,7 +365,8 @@ def main() -> None:
     for it in items:
         print(f"===== {it} ({now()})", flush=True)
         {"token": m_token, "minute": m_minute, "minute5": lambda c: m_minute(c, "5"),
-         "venue": m_venue, "daily": m_daily, "rate": m_rate, "adjcheck": m_adjcheck}[it](c)
+         "venue": m_venue, "daily": m_daily, "rate": m_rate, "adjcheck": m_adjcheck,
+         "tick": m_tick, "realcheck": m_realcheck}[it](c)
 
 
 if __name__ == "__main__":
