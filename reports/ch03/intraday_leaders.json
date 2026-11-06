@@ -1,0 +1,499 @@
+{
+ "measured_at": "2026-11-06T18:38:19",
+ "codes": 603,
+ "days": 243,
+ "first_day": "20251104",
+ "last_day": "20261104",
+ "excluded_late_open_days": [
+  "20251113",
+  "20260102"
+ ],
+ "top": 30,
+ "value_approx_ratio": {
+  "n": 34829,
+  "median": 0.9773,
+  "p10": 0.904,
+  "p90": 1.0
+ },
+ "identification_recall": {
+  "910": 0.73,
+  "930": 0.756,
+  "1000": 0.788,
+  "prev_day_top": 0.662
+ },
+ "excluded_upper_limit_at_t": 826,
+ "post_move": {
+  "910": {
+   "대상 전체": {
+    "n": 136795,
+    "post_median": -0.3,
+    "post_mean": -0.13,
+    "p_post_pos": 0.441,
+    "post_max_median": 1.89,
+    "post_min_median": -2.03
+   },
+   "누적 거래대금 상위 30": {
+    "n": 7145,
+    "post_median": -0.58,
+    "post_mean": -0.54,
+    "p_post_pos": 0.431,
+    "post_max_median": 2.55,
+    "post_min_median": -2.9
+   },
+   "상위 30 & 상대강도>0": {
+    "n": 4639,
+    "post_median": -0.73,
+    "post_mean": -0.72,
+    "p_post_pos": 0.419,
+    "post_max_median": 2.74,
+    "post_min_median": -3.2
+   },
+   "상위 30 & 상대강도>0 & +10% 이상": {
+    "n": 769,
+    "post_median": -1.76,
+    "post_mean": -1.69,
+    "p_post_pos": 0.441,
+    "post_max_median": 5.12,
+    "post_min_median": -6.06
+   },
+   "상위 30 & 상대강도<0": {
+    "n": 2498,
+    "post_median": -0.29,
+    "post_mean": -0.22,
+    "p_post_pos": 0.453,
+    "post_max_median": 2.25,
+    "post_min_median": -2.39
+   }
+  },
+  "930": {
+   "대상 전체": {
+    "n": 136752,
+    "post_median": -0.24,
+    "post_mean": -0.13,
+    "p_post_pos": 0.443,
+    "post_max_median": 1.62,
+    "post_min_median": -1.82
+   },
+   "누적 거래대금 상위 30": {
+    "n": 7133,
+    "post_median": -0.48,
+    "post_mean": -0.6,
+    "p_post_pos": 0.428,
+    "post_max_median": 2.23,
+    "post_min_median": -2.64
+   },
+   "상위 30 & 상대강도>0": {
+    "n": 4689,
+    "post_median": -0.6,
+    "post_mean": -0.72,
+    "p_post_pos": 0.419,
+    "post_max_median": 2.34,
+    "post_min_median": -2.96
+   },
+   "상위 30 & 상대강도>0 & +10% 이상": {
+    "n": 1022,
+    "post_median": -1.53,
+    "post_mean": -1.55,
+    "p_post_pos": 0.411,
+    "post_max_median": 3.8,
+    "post_min_median": -5.13
+   },
+   "상위 30 & 상대강도<0": {
+    "n": 2436,
+    "post_median": -0.3,
+    "post_mean": -0.37,
+    "p_post_pos": 0.448,
+    "post_max_median": 2.05,
+    "post_min_median": -2.22
+   }
+  },
+  "1000": {
+   "대상 전체": {
+    "n": 136676,
+    "post_median": -0.23,
+    "post_mean": -0.15,
+    "p_post_pos": 0.436,
+    "post_max_median": 1.38,
+    "post_min_median": -1.65
+   },
+   "누적 거래대금 상위 30": {
+    "n": 7118,
+    "post_median": -0.45,
+    "post_mean": -0.56,
+    "p_post_pos": 0.425,
+    "post_max_median": 1.87,
+    "post_min_median": -2.38
+   },
+   "상위 30 & 상대강도>0": {
+    "n": 4688,
+    "post_median": -0.51,
+    "post_mean": -0.65,
+    "p_post_pos": 0.422,
+    "post_max_median": 2.0,
+    "post_min_median": -2.62
+   },
+   "상위 30 & 상대강도>0 & +10% 이상": {
+    "n": 1089,
+    "post_median": -1.39,
+    "post_mean": -1.42,
+    "p_post_pos": 0.4,
+    "post_max_median": 3.11,
+    "post_min_median": -4.51
+   },
+   "상위 30 & 상대강도<0": {
+    "n": 2424,
+    "post_median": -0.35,
+    "post_mean": -0.4,
+    "p_post_pos": 0.431,
+    "post_max_median": 1.66,
+    "post_min_median": -1.96
+   }
+  }
+ },
+ "post_move_halves": {
+  "split_day": "20260507",
+  "910": {
+   "후보 전반": {
+    "n": 2421,
+    "post_median": -0.41,
+    "post_mean": -0.21,
+    "p_post_pos": 0.447,
+    "post_max_median": 2.82,
+    "post_min_median": -2.9
+   },
+   "후보 후반": {
+    "n": 2218,
+    "post_median": -1.14,
+    "post_mean": -1.28,
+    "p_post_pos": 0.388,
+    "post_max_median": 2.61,
+    "post_min_median": -3.57
+   },
+   "대상 전체 전반": {
+    "n": 66454,
+    "post_median": -0.15,
+    "post_mean": 0.11,
+    "p_post_pos": 0.461,
+    "post_max_median": 1.69,
+    "post_min_median": -1.71
+   },
+   "대상 전체 후반": {
+    "n": 70341,
+    "post_median": -0.49,
+    "post_mean": -0.35,
+    "p_post_pos": 0.423,
+    "post_max_median": 2.09,
+    "post_min_median": -2.42
+   }
+  },
+  "930": {
+   "후보 전반": {
+    "n": 2418,
+    "post_median": -0.35,
+    "post_mean": -0.25,
+    "p_post_pos": 0.45,
+    "post_max_median": 2.4,
+    "post_min_median": -2.61
+   },
+   "후보 후반": {
+    "n": 2271,
+    "post_median": -0.92,
+    "post_mean": -1.23,
+    "p_post_pos": 0.385,
+    "post_max_median": 2.29,
+    "post_min_median": -3.39
+   },
+   "대상 전체 전반": {
+    "n": 66452,
+    "post_median": 0.0,
+    "post_mean": 0.12,
+    "p_post_pos": 0.474,
+    "post_max_median": 1.51,
+    "post_min_median": -1.46
+   },
+   "대상 전체 후반": {
+    "n": 70300,
+    "post_median": -0.48,
+    "post_mean": -0.37,
+    "p_post_pos": 0.413,
+    "post_max_median": 1.73,
+    "post_min_median": -2.25
+   }
+  },
+  "1000": {
+   "후보 전반": {
+    "n": 2442,
+    "post_median": -0.32,
+    "post_mean": -0.32,
+    "p_post_pos": 0.451,
+    "post_max_median": 2.08,
+    "post_min_median": -2.38
+   },
+   "후보 후반": {
+    "n": 2246,
+    "post_median": -0.77,
+    "post_mean": -1.0,
+    "p_post_pos": 0.39,
+    "post_max_median": 1.94,
+    "post_min_median": -2.94
+   },
+   "대상 전체 전반": {
+    "n": 66405,
+    "post_median": -0.12,
+    "post_mean": -0.01,
+    "p_post_pos": 0.458,
+    "post_max_median": 1.23,
+    "post_min_median": -1.37
+   },
+   "대상 전체 후반": {
+    "n": 70271,
+    "post_median": -0.39,
+    "post_mean": -0.29,
+    "p_post_pos": 0.416,
+    "post_max_median": 1.53,
+    "post_min_median": -1.97
+   }
+  }
+ },
+ "rvol": {
+  "910": {
+   "<1": {
+    "n": 42430,
+    "post_median": -0.4,
+    "post_mean": -0.25,
+    "p_post_pos": 0.421,
+    "post_max_median": 1.73,
+    "post_min_median": -2.07
+   },
+   "1~2": {
+    "n": 13214,
+    "post_median": -0.28,
+    "post_mean": -0.04,
+    "p_post_pos": 0.449,
+    "post_max_median": 2.13,
+    "post_min_median": -2.22
+   },
+   "2~5": {
+    "n": 6667,
+    "post_median": -0.39,
+    "post_mean": -0.04,
+    "p_post_pos": 0.441,
+    "post_max_median": 2.5,
+    "post_min_median": -2.7
+   },
+   ">=5": {
+    "n": 3035,
+    "post_median": -1.22,
+    "post_mean": -0.64,
+    "p_post_pos": 0.399,
+    "post_max_median": 3.49,
+    "post_min_median": -3.99
+   },
+   "상위 30 중 RVOL>=2": {
+    "n": 1981,
+    "post_median": -1.11,
+    "post_mean": -0.94,
+    "p_post_pos": 0.422,
+    "post_max_median": 3.58,
+    "post_min_median": -4.18
+   },
+   "상위 30 중 RVOL<2": {
+    "n": 2418,
+    "post_median": -0.51,
+    "post_mean": -0.36,
+    "p_post_pos": 0.426,
+    "post_max_median": 2.19,
+    "post_min_median": -2.59
+   }
+  },
+  "930": {
+   "<1": {
+    "n": 42052,
+    "post_median": -0.33,
+    "post_mean": -0.19,
+    "p_post_pos": 0.426,
+    "post_max_median": 1.53,
+    "post_min_median": -1.84
+   },
+   "1~2": {
+    "n": 13700,
+    "post_median": -0.21,
+    "post_mean": -0.09,
+    "p_post_pos": 0.455,
+    "post_max_median": 1.77,
+    "post_min_median": -2.0
+   },
+   "2~5": {
+    "n": 6688,
+    "post_median": -0.26,
+    "post_mean": 0.02,
+    "p_post_pos": 0.456,
+    "post_max_median": 2.3,
+    "post_min_median": -2.4
+   },
+   ">=5": {
+    "n": 2850,
+    "post_median": -0.88,
+    "post_mean": -0.59,
+    "p_post_pos": 0.401,
+    "post_max_median": 3.44,
+    "post_min_median": -3.68
+   },
+   "상위 30 중 RVOL>=2": {
+    "n": 2035,
+    "post_median": -0.76,
+    "post_mean": -0.92,
+    "p_post_pos": 0.416,
+    "post_max_median": 3.0,
+    "post_min_median": -3.75
+   },
+   "상위 30 중 RVOL<2": {
+    "n": 2398,
+    "post_median": -0.42,
+    "post_mean": -0.37,
+    "p_post_pos": 0.431,
+    "post_max_median": 1.93,
+    "post_min_median": -2.28
+   }
+  },
+  "1000": {
+   "<1": {
+    "n": 41609,
+    "post_median": -0.31,
+    "post_mean": -0.18,
+    "p_post_pos": 0.423,
+    "post_max_median": 1.3,
+    "post_min_median": -1.69
+   },
+   "1~2": {
+    "n": 14422,
+    "post_median": -0.2,
+    "post_mean": -0.13,
+    "p_post_pos": 0.448,
+    "post_max_median": 1.5,
+    "post_min_median": -1.78
+   },
+   "2~5": {
+    "n": 6579,
+    "post_median": -0.22,
+    "post_mean": 0.02,
+    "p_post_pos": 0.454,
+    "post_max_median": 1.98,
+    "post_min_median": -2.1
+   },
+   ">=5": {
+    "n": 2800,
+    "post_median": -0.7,
+    "post_mean": -0.43,
+    "p_post_pos": 0.419,
+    "post_max_median": 3.02,
+    "post_min_median": -3.18
+   },
+   "상위 30 중 RVOL>=2": {
+    "n": 2038,
+    "post_median": -0.75,
+    "post_mean": -0.81,
+    "p_post_pos": 0.419,
+    "post_max_median": 2.56,
+    "post_min_median": -3.21
+   },
+   "상위 30 중 RVOL<2": {
+    "n": 2401,
+    "post_median": -0.34,
+    "post_mean": -0.32,
+    "p_post_pos": 0.435,
+    "post_max_median": 1.64,
+    "post_min_median": -2.14
+   }
+  }
+ },
+ "theme": {
+  "snapshot": "20261106",
+  "themes": 142,
+  "universe_codes_with_theme": 0.292,
+  "final_top_codes_with_theme": 0.298,
+  "by_t": {
+   "910": {
+    "상위 5개 테마 대장": {
+     "n": 1142,
+     "post_median": -0.34,
+     "post_mean": -0.18,
+     "p_post_pos": 0.449,
+     "post_max_median": 2.52,
+     "post_min_median": -2.66
+    },
+    "상위 5개 테마 추종": {
+     "n": 3241,
+     "post_median": -0.19,
+     "post_mean": 0.06,
+     "p_post_pos": 0.464,
+     "post_max_median": 2.09,
+     "post_min_median": -2.17
+    },
+    "그 밖의 테마 종목": {
+     "n": 27592,
+     "post_median": -0.2,
+     "post_mean": -0.06,
+     "p_post_pos": 0.455,
+     "post_max_median": 1.74,
+     "post_min_median": -1.83
+    },
+    "대장의 장 마감 상위 30 비율": 0.507
+   },
+   "930": {
+    "상위 5개 테마 대장": {
+     "n": 1138,
+     "post_median": -0.31,
+     "post_mean": -0.08,
+     "p_post_pos": 0.446,
+     "post_max_median": 2.21,
+     "post_min_median": -2.38
+    },
+    "상위 5개 테마 추종": {
+     "n": 3162,
+     "post_median": -0.1,
+     "post_mean": 0.12,
+     "p_post_pos": 0.477,
+     "post_max_median": 1.88,
+     "post_min_median": -1.9
+    },
+    "그 밖의 테마 종목": {
+     "n": 27646,
+     "post_median": -0.18,
+     "post_mean": -0.09,
+     "p_post_pos": 0.452,
+     "post_max_median": 1.48,
+     "post_min_median": -1.65
+    },
+    "대장의 장 마감 상위 30 비율": 0.516
+   },
+   "1000": {
+    "상위 5개 테마 대장": {
+     "n": 1151,
+     "post_median": -0.26,
+     "post_mean": -0.16,
+     "p_post_pos": 0.445,
+     "post_max_median": 1.72,
+     "post_min_median": -2.11
+    },
+    "상위 5개 테마 추종": {
+     "n": 3187,
+     "post_median": 0.0,
+     "post_mean": 0.08,
+     "p_post_pos": 0.477,
+     "post_max_median": 1.6,
+     "post_min_median": -1.68
+    },
+    "그 밖의 테마 종목": {
+     "n": 27592,
+     "post_median": -0.17,
+     "post_mean": -0.09,
+     "p_post_pos": 0.448,
+     "post_max_median": 1.3,
+     "post_min_median": -1.48
+    },
+    "대장의 장 마감 상위 30 비율": 0.517
+   }
+  }
+ }
+}
